@@ -1,3 +1,6 @@
+/*
+ * 1406 - 에디터
+ */
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.LinkedList;

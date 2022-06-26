@@ -1,3 +1,6 @@
+/*
+ * 10828 - 스택
+ */
 import java.util.Scanner;
 
 public class Main {

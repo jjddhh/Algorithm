@@ -1,3 +1,6 @@
+/*
+ * 1874 - 스택 수열
+ */
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.EmptyStackException;
