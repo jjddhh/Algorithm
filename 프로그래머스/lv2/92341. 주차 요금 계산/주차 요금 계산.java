@@ -39,6 +39,8 @@ class Solution {
             int outMin = Integer.parseInt(outTime[0]) * 60 + Integer.parseInt(outTime[1]);
             int min = outMin - inMin;
             
+            // hashMap.remove(num); 런타임 에러 발생 부분
+
             timeMap.put(num, timeMap.get(num) + min);
         }
         
