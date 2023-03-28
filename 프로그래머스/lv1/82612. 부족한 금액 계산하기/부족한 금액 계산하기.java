@@ -6,7 +6,7 @@ class Solution {
         
         long answer;
         if(money - total_price >= 0) answer = 0;
-        else answer = total_price - money;
+        else answer = (money - total_price) * -1;
 
         return answer;
     }
