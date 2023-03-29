@@ -1,14 +1,23 @@
+import java.util.*;
+
 class Solution {
     public int[] solution(int[] prices) {
         int[] answer = new int[prices.length];
+        Stack<Integer> st = new Stack<>();
+        st.push(0);
         
-        for (int i = 0; i < prices.length - 1; i++) {
-            int sum = 0;
-            for(int j = i + 1; j < prices.length; j++) {
-                sum++;
-                if(prices[i] > prices[j]) break;
+        for (int i = 1; i < prices.length; i++) {
+            while(!st.isEmpty() && prices[i] < prices[st.peek()]) {
+                int idx = st.pop();
+                answer[idx] = i - idx;
             }
-            answer[i] = sum;
+            
+            st.push(i);
+        }
+        
+        while(!st.isEmpty()) {
+            int idx = st.pop();
+            answer[idx] = prices.length - idx - 1;
         }
         
         return answer;
