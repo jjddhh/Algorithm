@@ -12,7 +12,15 @@ class Solution {
     }
     
     void bt(int depth, int k, int[][] dungeons) {
-
+        boolean flag = true;
+        for(int i = 0; i < dungeons.length; i++) {
+            if(!visit[i] && k >= dungeons[i][0]) flag = false;
+        }
+        
+        if(flag) {
+            answer = Math.max(answer, depth);
+            return;
+        }
         
         for(int i = 0; i < dungeons.length; i++) {
             if(visit[i] || k < dungeons[i][0]) continue;
@@ -20,7 +28,5 @@ class Solution {
             bt(depth + 1, k - dungeons[i][1], dungeons);
             visit[i] = false;
         }
-        
-        answer = Math.max(answer, depth);
     }
 }
