@@ -3,6 +3,7 @@ import java.util.*;
 class Solution {
     public int solution(int n, int[] lost, int[] reserve) {
         
+        // Caution
         Arrays.sort(lost);
         Arrays.sort(reserve);
         
