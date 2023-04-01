@@ -32,7 +32,6 @@ class Solution {
                         b = costs[i][1];
                     }
                     
-                    if(b == bridge.i1) continue;
                     
                     pq.add(new Bridge(bridge.i2, a, costs[i][2]));
                 }
