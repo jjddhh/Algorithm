@@ -1,7 +1,8 @@
 import java.util.*;
 
 class Solution {
-    public List solution(int[] progresses, int[] speeds) {
+    public int[] solution(int[] progresses, int[] speeds) {
+    // public List solution(int[] progresses, int[] speeds) {
         List<Integer> list = new ArrayList<>();
         
         int cur = 0;
@@ -12,6 +13,8 @@ class Solution {
                 progresses[i] += speeds[i];
             }
             
+            // 현재 작업 진도가 100 이상일 때,
+            // 그 뒤 작업들 중 진도가 100 이상인 것들을 연속으로 체크
             if(progresses[cur] >= 100) {
                 sum++;
                 cur++;
@@ -26,10 +29,11 @@ class Solution {
             }
         }
         
-        // int[] answer = list.stream()
-        //     .mapToInt(Integer::intValue)
-        //     .toArray();
+        //스트림 효율 관련 내용
+        int[] answer = list.stream()
+            .mapToInt(Integer::intValue)
+            .toArray();
         
-        return list;
+        return answer;
     }
 }
