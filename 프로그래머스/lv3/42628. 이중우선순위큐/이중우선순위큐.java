@@ -2,8 +2,6 @@ import java.util.*;
 
 class Solution {
     public int[] solution(String[] operations) {
-        
-        
         PriorityQueue<Integer> min = new PriorityQueue<>();
         PriorityQueue<Integer> max = new PriorityQueue<>(Collections.reverseOrder());
         
@@ -17,8 +15,8 @@ class Solution {
             } else {
                 if(min.isEmpty()) continue;
                 
-                if(val > 0) min.remove(max.poll());
-                else max.remove(min.poll());
+                if(val == 1) min.remove(max.poll());
+                else if(val == -1) max.remove(min.poll());
             }
         }
         
