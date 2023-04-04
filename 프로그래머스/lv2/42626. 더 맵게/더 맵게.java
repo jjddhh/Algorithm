@@ -13,7 +13,8 @@ class Solution {
         while(pq.peek() < K && pq.size() >= 2) {
             int first = pq.poll();
             int second = pq.poll();
-            if(second == 0) return -1;
+            // 두 번째로 맵지 않은 음식의 스코빌 지수가 0 일 경우 0 + (0 * 2) 가 반복되어
+            // if(second == 0) return -1;
             
             pq.add(first + (second * 2));
             answer++;
