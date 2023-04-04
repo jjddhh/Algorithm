@@ -19,7 +19,7 @@ class Solution {
         answer++;
         
         while(!bridge.isEmpty()) {
-            
+            // 맨 앞 트럭이 도착했는지 확인 후 제거
             if(bridge.get(0).dist == 0) {
                 totalWeight -= bridge.get(0).weight;
                 bridge.remove(0);
@@ -31,7 +31,7 @@ class Solution {
                     bridge.add(new Truck(bridge_length, trucks.poll()));
                     totalWeight += truckWeight;
                 }    
-            }
+            }   
             
             int len = bridge.size();
             for(int i = 0; i < len; i++) {
