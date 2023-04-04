@@ -3,23 +3,26 @@ import java.util.*;
 class Solution {
     public int solution(int bridge_length, int weight, int[] truck_weights) {
         
+        // 대기 트럭
         Queue<Integer> trucks = new LinkedList<>();
         for(int i = 0; i < truck_weights.length; i++) {
             trucks.add(truck_weights[i]);
         }
         
+        // 다리를 건너는 트럭
+        List<Truck> bridge = new LinkedList<>();
         int answer = 0;
         int totalWeight = 0;
-        List<Truck> bridge = new LinkedList<>();
+        
         totalWeight += trucks.peek();
         bridge.add(new Truck(bridge_length - 1, trucks.poll()));
         answer++;
         
         while(!bridge.isEmpty()) {
-            while(!bridge.isEmpty() && bridge.get(0).dist == 0) {
+            
+            if(bridge.get(0).dist == 0) {
                 totalWeight -= bridge.get(0).weight;
                 bridge.remove(0);
-                if(truck_weights.length == 10) System.out.println(answer);
             }
             
             if(!trucks.isEmpty()) {
