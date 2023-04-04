@@ -3,6 +3,8 @@ import java.util.*;
 class Solution {
     public String solution(String[] participant, String[] completion) {
         
+        // 처음에는 value를 Boolean으로 했다가 
+        // 동명이인 케이스를 고려하여 Integer로 변경
         HashMap<String, Integer> map = new HashMap<>();
         for(int i = 0; i < participant.length; i++) {
             map.put(participant[i], 0);
