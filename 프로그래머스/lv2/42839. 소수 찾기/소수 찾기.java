@@ -10,6 +10,7 @@ class Solution {
             num[idx]++;
         }
         
+        // 맨 앞 0 이 들어가는 것 제외하기 위한 부분
         for(int i = 1; i < 10; i++) {
             if(num[i] != 0) {
                 num[i]--;
@@ -17,7 +18,6 @@ class Solution {
                 num[i]++;
             }
         }
-        
         
         return answer;
     }
