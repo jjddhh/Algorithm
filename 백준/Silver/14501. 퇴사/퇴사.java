@@ -1,72 +1,31 @@
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.StringTokenizer;
+import java.util.*;
 
-public class Main {
+class Main {
+    private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    private static StringBuilder sb = new StringBuilder();
+    private static StringTokenizer st;
+    private static int n;
+    private static int[][] arr = new int[20][2];
 
-    public static StringBuilder sb = new StringBuilder();
-    public static int[] day;
-    public static int[] pay;
-    public static int[] pay_sum;
-    public static boolean[] visit;
-    public static int N;
-    public static int MAX;
-
-    public static void main(String[] args) throws Exception {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st;
-
-        st = new StringTokenizer(br.readLine());
-        N = Integer.parseInt(st.nextToken());
-
-        day = new int[N + 1];
-        pay = new int[N + 1];
-        pay_sum = new int[N + 2];
-        visit = new boolean[N + 1];
-        Arrays.fill(visit, false);
-
-        for(int i = 1; i <= N; i++){
+    public static void main(String[] args) throws IOException {
+        n = Integer.parseInt(br.readLine());
+        for(int i = 1; i <= n; i++) {
             st = new StringTokenizer(br.readLine());
-            day[i] = Integer.parseInt(st.nextToken());
-            pay[i] = Integer.parseInt(st.nextToken());
+            arr[i][0] = Integer.parseInt(st.nextToken());
+            arr[i][1] = Integer.parseInt(st.nextToken());
         }
 
-        dfs(1, 1);
+        int[] dp = new int[20];
 
-        System.out.println(MAX);
-
-        br.close();
-    }
-
-    private static void dfs(int depth, int start) {
-        if (start == N + 1) {
-            int sum = 0;
-            for (int i = 1; i <= depth - 1; i++) {
-                sum += pay_sum[i];
-            }
-
-            if(MAX < sum) MAX = sum;
-
-            return;
-        }else if(start > N + 1){
-            int sum = 0;
-            for (int i = 1; i <= depth - 2; i++) {
-                sum += pay_sum[i];
-            }
-
-            if(MAX < sum) MAX = sum;
-
-            return;
-        }
-
-        for (int i = start; i <= N; i++) {
-            if(visit[i] == false){
-                visit[i] = true;
-                pay_sum[depth] = pay[i];
-                dfs(depth + 1, day[i] + i);
-                visit[i] = false;
+        for(int i = 1; i <= n + 1; i++) {
+            for(int j = 1; j < i; j++) {
+                if(j + arr[j][0] <= i) dp[i] = Math.max(dp[i], dp[j] + arr[j][1]);
             }
         }
+
+        System.out.println(dp[n + 1]);
     }
 }
