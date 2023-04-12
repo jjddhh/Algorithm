@@ -15,9 +15,11 @@ class Solution {
             }
         }
         
+        // 부모 선별
         Set<Integer> set = new HashSet<>();
         for(int i = 0; i < n; i++) {
             set.add(find(i));
+            
         }
         
         int answer = set.size();
@@ -30,8 +32,7 @@ class Solution {
 		
 		if(x == y) return false;
 		
-		if(x <= y) parent[y] = x;
-		else parent[x] = y;
+		parent[x] = y;
 		return true;
 	}
 	
