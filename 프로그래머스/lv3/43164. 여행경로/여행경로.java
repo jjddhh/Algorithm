@@ -7,7 +7,7 @@ class Solution {
     int max = 0;
     
     public List solution(String[][] tickets) {
-        
+        // 알파벳순 정렬
         for(int i = 0; i < tickets.length; i++) {
             list.add(new Ticket(tickets[i][0], tickets[i][1]));
         }
