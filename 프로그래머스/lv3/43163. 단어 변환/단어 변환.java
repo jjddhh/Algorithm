@@ -25,6 +25,7 @@ class Solution {
                     if(a.compareTo(b) != 0) cnt++;
                 }
                 
+                // 두 단어 비교했을때, 다른 알파벳이 1개 일 경우
                 if(cnt == 1) {
                     visit[i] = true;
                     que.add(new Word(words[i], cur.t + 1));
