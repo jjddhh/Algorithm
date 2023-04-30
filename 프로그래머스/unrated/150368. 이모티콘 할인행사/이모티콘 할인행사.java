@@ -1,7 +1,6 @@
 import java.util.*;
 
 class Solution {
-    List<Integer> discount;
     PriorityQueue<Register> pq = new PriorityQueue<>();
     
     public int[] solution(int[][] users, int[] emoticons) {
@@ -9,8 +8,6 @@ class Solution {
         for(int i = 0; i < users.length; i++) {
             set.add(users[i][0]);
         }
-        discount = new ArrayList<>(set);
-        Collections.sort(discount, (o1, o2) -> o2 - o1);
         
         int[] percent = new int[emoticons.length];
         dfs(0, emoticons, percent, users);
@@ -45,7 +42,6 @@ class Solution {
             return;
         }
         
-        int len = discount.size();
         for(int i = 10; i <= 40; i += 10) {
             percent[depth] = i;
             dfs(depth + 1, emoticons, percent, users);

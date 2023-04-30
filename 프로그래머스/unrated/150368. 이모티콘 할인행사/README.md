@@ -1,10 +1,10 @@
 # [unrated] 이모티콘 할인행사 - 150368 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/150368#) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/150368) 
 
 ### 성능 요약
 
-메모리: 77.5 MB, 시간: 0.83 ms
+메모리: 78 MB, 시간: 0.30 ms
 
 ### 구분
 
